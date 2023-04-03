@@ -1,1 +1,38 @@
-<p>register works!</p>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <div class="card">
+                <h4 class="card-title">Register Form</h4>
+                <div class="d-flex justify-content-center">
+                    <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="firstName">First Name:</label>
+                            <input type="text" class="form-control-inline" name="firstName" formControlName="firstName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" class="form-control-inline" name="lastName" formControlName="lastName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control-inline" name="email" formControlName="email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control-inline" name="password" formControlName="password" />
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password:</label>
+                            <input type="password" class="form-control-inline" name="confirmPassword" formControlName="confirmPassword" />
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success me-2">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>

@@ -8,11 +8,13 @@ import { SharedModule } from './Shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './Public/home.component';
 import { FormsModule } from '@angular/forms';
+import { JobsComponent } from './Public/jobs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    JobsComponent
   ],
   imports: [
     BrowserModule,

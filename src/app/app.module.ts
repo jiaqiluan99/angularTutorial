@@ -9,6 +9,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './Public/home.component';
 import { FormsModule } from '@angular/forms';
 import { JobsComponent } from './Public/jobs.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtAdderInterceptor } from './Core/Interceptors/jwt-adder.interceptor';
+import { LoginGuard } from './Core/Guards/login.guard';
+import { AdminGuard } from './Core/Guards/admin.guard';
+import { APIKeyAdderInterceptor } from './Core/Interceptors/apikey-adder.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,12 @@ import { JobsComponent } from './Public/jobs.component';
     NgbModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtAdderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: APIKeyAdderInterceptor, multi: true },
+    LoginGuard,
+    AdminGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -24,6 +24,7 @@ export class AccountService {
     return this.http.post<boolean>("https://march2023apigatewayjl.azure-api.net/authentication/api/Account/login", loginData).pipe(map((response:any) => {
       if (response){
         localStorage.setItem('token', response.token);
+        this.populateUserInfoFromToken();
         return true;
       }
       return false;
